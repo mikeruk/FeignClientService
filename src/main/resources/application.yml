@@ -1,0 +1,63 @@
+#server:
+#  port: 8082  # Feign Client Service runs on port 8082
+#
+#spring:
+#  application:
+#    name: "feign-client-service"  # This service will register in Eureka
+#
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: "http://localhost:8761/eureka/"
+#  instance:
+#    hostname: "localhost"
+
+server:
+  port: 8082  # Feign Client Service runs on port 8082
+
+spring:
+  application:
+    name: feign-client-service
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            loggerLevel: FULL  # Enables FULL logging for all Feign clients
+    loadbalancer:
+      x-forwarded:
+        enabled: true
+
+
+#spring.cloud.loadbalancer.health-check.path.backend-service=/customHealth
+feign:
+  api:
+    key: 12345-SECRET-KEY
+
+logging: #Do These Settings Contradict Themselves? Short Answer: No, these settings do not contradict themselves. They are complementary and apply debug logging at different levels of specificity within Feign and related components.
+  level:
+    feign: DEBUG  # Logs Feign internals. This is in addition to the configuration in the class ApplicationBeanConfiguration. Both configurations are needed.
+    #com.example.dating: DEBUG  # Adjust to your package if needed
+    feign.Request: DEBUG
+    feign.Response: DEBUG
+    dating.FeignClientService: DEBUG
+    springframework.web.client.RestTemplate: DEBUG
+
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://localhost:8761/eureka/"
+    register-with-eureka: true
+    fetch-registry: true
+
+management: # activates reporting metrics
+  observations:
+    key-values:
+      enabled: true
+  metrics:
+    enable:
+      all: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
