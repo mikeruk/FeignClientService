@@ -69,7 +69,7 @@ public class CustomFeignClientConfiguration
     // Other beans Feign takes directly from Spring Core Framework - see the docs above.
 
 
-    // NB!! Here my Chat-GPT thread, explaining it: https://chatgpt.com/c/67baeb29-c660-8011-800e-8828531b68d0
+    // NB!! Here my Chat-GPT thread, explaining it - see in the SpringDocs folder, here inside the project !!!
     // The ObjectMapper used by SpringDecoder and SpringEncoder comes from Jackson.
     // You can customize it by creating a Jackson2ObjectMapperBuilder bean.
     //

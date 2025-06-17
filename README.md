@@ -1033,7 +1033,7 @@ feign.template.Template                  : Explicit slash decoding specified, de
 2025-04-06T11:08:01.029+02:00 DEBUG 29596 --- [BackendFeignClient#getUserById] vary: Access-Control-Request-Headers
 2025-04-06T11:08:01.029+02:00 DEBUG 29596 --- [feign-client-service] [nio-8082-exec-3] d.FeignClientService.BackendFeignClient  : [BackendFeignClient#getUserById] vary: Access-Control-Request-Method
 2025-04-06T11:08:01.029+02:00 DEBUG 29596 --- [BackendFeignClient#getUserById] vary: Origin
-2025-04-06T11:08:01.029+02:00 DEBUG 29596 --- [BackendFeignClient#getUserById] {"id":8,"ts":"2025-02-09T18:30:46.850014","_links":{"self":{"href":"http://KY10PRO:8081/api/v1/user/8"}}}
+2025-04-06T11:08:01.029+02:00 DEBUG 29596 --- [BackendFeignClient#getUserById] {"id":8,"ts":"2025-02-09T18:30:46.850014","_links":{"self":{"href":"http://BlaBlaBla:8081/api/v1/user/8"}}}
 2025-04-06T11:08:01.029+02:00 DEBUG 29596 --- [BackendFeignClient#getUserById] <--- END HTTP (105-byte body)
 ```
 Ok, that's SUCCESS!
@@ -2574,12 +2574,12 @@ print the headers, like so:
 The printed result will be:
 ```cmd
 >>>>>>>> Printing Request Headers:
-x-forwarded-host: KY10PRO
+x-forwarded-host: BlaBlaBla
 x-forwarded-proto: http
 x-api-version: /api/v1
 accept: */*
 user-agent: Java/17.0.7
-host: KY10PRO:8079
+host: BlaBlaBla:8079
 connection: keep-alive
 ```
 
